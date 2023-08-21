@@ -1,12 +1,19 @@
-import notes from '../notes'
-let detail = (details)=>{
-  return <div className="note">
-    <h1>{details.title}</h1>
-    <p>{details.content}</p>
-  </div>
+import React from "react";
+
+function Note(props) {
+  return (
+    <div className="note">
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button
+        onClick={() => {
+          props.onDelete(props.index);
+        }}
+      >
+        DELETE
+      </button>
+    </div>
+  );
 }
-export default function Note(){
-    return <div >
-    {notes.map(detail)}
-  </div>
-}
+
+export default Note;
